@@ -19,7 +19,9 @@ const UploadImage = () => {
     formData.append('image', file)
 
     try {
-      const res = await axios.post('http://localhost:3000/upload', formData)
+      const res = await axios.post('http://localhost:3000/uploads', formData,  {headers: {
+    'Content-Type': 'multipart/form-data'
+  }})
       console.log(res)
     } catch (error) {
       console.error('Upload failed!', error)
